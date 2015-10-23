@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import CoreData
 
 class tripPlannerTableViewController: UITableViewController {
 
+    // Retreive the managedObjectContext from AppDelegate
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // build the list 
+        
+        
+        //insert newitem into list
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("TripItem", inManagedObjectContext: self.managedObjectContext) as! TripItem
+        
+        newItem.tripName = "Paris"
+        newItem.waypoints = "Lithuania"
+        
+        print(newItem)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
