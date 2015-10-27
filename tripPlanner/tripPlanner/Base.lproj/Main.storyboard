@@ -80,10 +80,14 @@
                     <navigationItem key="navigationItem" title="Planned Trips" id="E9f-L6-iDm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UCL-YZ-EkI">
                             <connections>
-                                <segue destination="8T5-4F-DrA" kind="presentation" id="BmI-gG-sVM"/>
+                                <action selector="addTrip:" destination="maV-jt-jMu" id="EsZ-tC-1Xb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="iCd-5M-52P" id="ALm-pY-PZ9"/>
+                        <outlet property="tableView" destination="iCd-5M-52P" id="jHX-Gv-7jE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xn-eX-JgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,6 +153,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WEI-fz-Yp1" id="CCS-zH-Xys"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <animations/>
@@ -233,6 +240,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <animations/>
                                                 <state key="normal" title="Add"/>
+                                                <connections>
+                                                    <action selector="addTrip:" destination="8T5-4F-DrA" eventType="touchUpInside" id="ntc-Ja-egB"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -256,6 +266,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="textBox" destination="HyL-9k-iNk" id="C9m-jo-M9v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NyC-Vc-VMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

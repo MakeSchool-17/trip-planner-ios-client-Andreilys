@@ -11,30 +11,116 @@ import CoreData
 
 class tripPlannerTableViewController: UITableViewController {
 
-    // Retreive the managedObjectContext from AppDelegate
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    @IBOutlet var myTableView: UITableView!
+    
+    var trips = [NSManagedObject]()
+    
+    @IBAction func addTrip(sender: AnyObject) {
+        let alert = UIAlertController(title: "New Trip", message: "Add a new Trip", preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .Default, handler: {(action:UIAlertAction) -> Void in
+            
+            let textField = alert.textFields!.first
+            self.saveTrip(textField!.text!)
+            self.tableView.reloadData()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+            style: .Default) { (action: UIAlertAction) -> Void in
+        }
+        
+        alert.addTextFieldWithConfigurationHandler{
+            (textField: UITextField) -> Void in
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        presentViewController(alert,
+            animated: true,
+            completion: nil)
+        
+    }
+    
 
+// saves the trip
+    func saveTrip(tripText: String) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let entity = NSEntityDescription.entityForName("Trip", inManagedObjectContext: managedContext)
+        
+        let trip = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        trip.setValue(tripText, forKey: "tripName")
+        
+        do {
+            try managedContext.save()
+            trips.append(trip)
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+// helps fetch the trip request
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "Trip")
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            trips = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+
+//lets you edit the table rows
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    
+    //deleting NSManaged Object
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            let managedObjectContext = appDelegate.managedObjectContext
+
+            let tripItemToDelete = trips[indexPath.row]
+            managedObjectContext.deleteObject(tripItemToDelete)
+            trips.removeAtIndex(indexPath.row)
+            do {
+                try managedObjectContext.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
+            }
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.registerClass(UITableViewCell.self,
+            forCellReuseIdentifier: "Cell")
         
-        // build the list 
+        // build the list
         
         
-        //insert newitem into list
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("TripItem", inManagedObjectContext: self.managedObjectContext) as! TripItem
-        
-        newItem.tripName = "Paris"
-        newItem.waypoints = "Lithuania"
-        
-        print(newItem)
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,8 +134,18 @@ class tripPlannerTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        return trips.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        
+        let trip = trips[indexPath.row]
+        
+        cell!.textLabel!.text = trip.valueForKey("tripName") as? String
+        
+        return cell!
     }
 
     /*

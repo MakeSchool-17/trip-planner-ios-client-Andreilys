@@ -10,8 +10,16 @@ import UIKit
 
 class addTripViewController: UIViewController {
    
+    @IBOutlet weak var textBox: UITextField!
+    
     @IBAction func dismissView(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: {});
+    }
+    
+    @IBAction func addTrip(sender: AnyObject) {
+        print(self.textBox.text!)
+        self.textBox.text = nil
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

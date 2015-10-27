@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Automatic">
-    <entity name="TripItem" representedClassName="." syncable="YES">
+    <entity name="Trip" syncable="YES">
         <attribute name="tripName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="waypoints" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="TripList" syncable="YES"/>
     <elements>
-        <element name="TripItem" positionX="-54" positionY="-9" width="128" height="75"/>
-        <element name="TripList" positionX="-27" positionY="36" width="128" height="45"/>
+        <element name="Trip" positionX="-63" positionY="-18" width="128" height="60"/>
     </elements>
 </model>
