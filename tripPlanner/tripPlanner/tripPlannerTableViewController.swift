@@ -15,6 +15,32 @@ class tripPlannerTableViewController: UITableViewController {
     
     var trips = [NSManagedObject]()
     
+    //MARK: viewdidload
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.registerClass(UITableViewCell.self,
+            forCellReuseIdentifier: "Cell")
+        
+    }
+    // helps fetch the trip request
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        let fetchRequest = NSFetchRequest(entityName: "Trip")
+        
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            trips = results as! [NSManagedObject]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
+    
     @IBAction func addTrip(sender: AnyObject) {
         let alert = UIAlertController(title: "New Trip", message: "Add a new Trip", preferredStyle: .Alert)
         
@@ -42,7 +68,6 @@ class tripPlannerTableViewController: UITableViewController {
         
     }
     
-
 // saves the trip
     func saveTrip(tripText: String) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -54,6 +79,7 @@ class tripPlannerTableViewController: UITableViewController {
         let trip = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         trip.setValue(tripText, forKey: "tripName")
+        trip.setValue(2, forKey: "numberOfWaypoints")
         
         do {
             try managedContext.save()
@@ -63,23 +89,6 @@ class tripPlannerTableViewController: UITableViewController {
         }
     }
     
-// helps fetch the trip request
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        let fetchRequest = NSFetchRequest(entityName: "Trip")
-        
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            trips = results as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-    }
 
 //lets you edit the table rows
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -106,20 +115,6 @@ class tripPlannerTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.registerClass(UITableViewCell.self,
-            forCellReuseIdentifier: "Cell")
-        
-        // build the list
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -139,6 +134,7 @@ class tripPlannerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         
         let trip = trips[indexPath.row]
@@ -148,6 +144,22 @@ class tripPlannerTableViewController: UITableViewController {
         return cell!
     }
 
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Pull from the trips instance variable to find the selected Trip
+        let selectedTrip = trips[indexPath.row] as! Trip
+        
+        print(selectedTrip.numberOfWaypoints!)
+        
+        if(selectedTrip.numberOfWaypoints! == 0){
+            performSegueWithIdentifier("noWaypoints", sender: self)
+        } else {
+            performSegueWithIdentifier("showDetails", sender: self)
+        }
+    }
+    
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

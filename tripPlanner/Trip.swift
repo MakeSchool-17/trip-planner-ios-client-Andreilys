@@ -1,15 +1,15 @@
 //
-//  TripItem.swift
+//  Trip.swift
 //  tripPlanner
 //
-//  Created by Andrei Lyskov on 10/23/15.
+//  Created by Andrei Lyskov on 10/28/15.
 //  Copyright © 2015 Andrei Lyskov. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-class TripItem: NSManagedObject {
+class Trip: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 

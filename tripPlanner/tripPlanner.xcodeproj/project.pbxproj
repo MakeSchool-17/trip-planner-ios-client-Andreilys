@@ -14,13 +14,13 @@
 		962430F01BD4085F002ED708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962430EE1BD4085F002ED708 /* LaunchScreen.storyboard */; };
 		962430FB1BD4085F002ED708 /* tripPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962430FA1BD4085F002ED708 /* tripPlannerTests.swift */; };
 		962431061BD4085F002ED708 /* tripPlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962431051BD4085F002ED708 /* tripPlannerUITests.swift */; };
-		968165891BD96192005D03DF /* detailedTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968165881BD96192005D03DF /* detailedTripViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		9681658D1BD96CFD005D03DF /* plannedTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9681658C1BD96CFD005D03DF /* plannedTripTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		9681658F1BDAA9F8005D03DF /* AddWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9681658E1BDAA9F7005D03DF /* AddWaypointViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		968165D61BDAB4CC005D03DF /* TripItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968165D41BDAB4CC005D03DF /* TripItem+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
-		968165D71BDAB4CC005D03DF /* TripItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968165D51BDAB4CC005D03DF /* TripItem.swift */; settings = {ASSET_TAGS = (); }; };
 		96E89CA41BD446D8007DB51C /* tripPlannerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E89CA31BD446D8007DB51C /* tripPlannerTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		96E89CA61BD44735007DB51C /* addTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E89CA51BD44735007DB51C /* addTripViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		96E8CD841BE155CE00CFF004 /* Waypoint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CD801BE155CE00CFF004 /* Waypoint+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		96E8CD851BE155CE00CFF004 /* Waypoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CD811BE155CE00CFF004 /* Waypoint.swift */; settings = {ASSET_TAGS = (); }; };
+		96E8CD861BE155CE00CFF004 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CD821BE155CE00CFF004 /* Trip+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		96E8CD871BE155CE00CFF004 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E8CD831BE155CE00CFF004 /* Trip.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +54,14 @@
 		962431011BD4085F002ED708 /* tripPlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tripPlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		962431051BD4085F002ED708 /* tripPlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tripPlannerUITests.swift; sourceTree = "<group>"; };
 		962431071BD4085F002ED708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		968165881BD96192005D03DF /* detailedTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailedTripViewController.swift; sourceTree = "<group>"; };
-		9681658C1BD96CFD005D03DF /* plannedTripTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = plannedTripTableViewCell.swift; sourceTree = "<group>"; };
 		9681658E1BDAA9F7005D03DF /* AddWaypointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWaypointViewController.swift; sourceTree = "<group>"; };
 		968165CD1BDAB49B005D03DF /* tripPlanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tripPlanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		968165D41BDAB4CC005D03DF /* TripItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TripItem+CoreDataProperties.swift"; path = "../TripItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		968165D51BDAB4CC005D03DF /* TripItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TripItem.swift; path = ../TripItem.swift; sourceTree = "<group>"; };
 		96E89CA31BD446D8007DB51C /* tripPlannerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tripPlannerTableViewController.swift; sourceTree = "<group>"; };
 		96E89CA51BD44735007DB51C /* addTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addTripViewController.swift; sourceTree = "<group>"; };
+		96E8CD801BE155CE00CFF004 /* Waypoint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Waypoint+CoreDataProperties.swift"; path = "../Waypoint+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		96E8CD811BE155CE00CFF004 /* Waypoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Waypoint.swift; path = ../Waypoint.swift; sourceTree = "<group>"; };
+		96E8CD821BE155CE00CFF004 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Trip+CoreDataProperties.swift"; path = "../Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		96E8CD831BE155CE00CFF004 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = ../Trip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,14 +113,14 @@
 		962430E11BD4085F002ED708 /* tripPlanner */ = {
 			isa = PBXGroup;
 			children = (
-				968165D41BDAB4CC005D03DF /* TripItem+CoreDataProperties.swift */,
-				968165D51BDAB4CC005D03DF /* TripItem.swift */,
+				96E8CD801BE155CE00CFF004 /* Waypoint+CoreDataProperties.swift */,
+				96E8CD811BE155CE00CFF004 /* Waypoint.swift */,
+				96E8CD821BE155CE00CFF004 /* Trip+CoreDataProperties.swift */,
+				96E8CD831BE155CE00CFF004 /* Trip.swift */,
 				962430E21BD4085F002ED708 /* AppDelegate.swift */,
 				962430E61BD4085F002ED708 /* Main.storyboard */,
-				968165881BD96192005D03DF /* detailedTripViewController.swift */,
 				9681658E1BDAA9F7005D03DF /* AddWaypointViewController.swift */,
 				96E89CA51BD44735007DB51C /* addTripViewController.swift */,
-				9681658C1BD96CFD005D03DF /* plannedTripTableViewCell.swift */,
 				96E89CA31BD446D8007DB51C /* tripPlannerTableViewController.swift */,
 				962430EC1BD4085F002ED708 /* Assets.xcassets */,
 				962430EE1BD4085F002ED708 /* LaunchScreen.storyboard */,
@@ -279,15 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E8CD871BE155CE00CFF004 /* Trip.swift in Sources */,
+				96E8CD861BE155CE00CFF004 /* Trip+CoreDataProperties.swift in Sources */,
 				962430EB1BD4085F002ED708 /* tripPlanner.xcdatamodeld in Sources */,
 				96E89CA61BD44735007DB51C /* addTripViewController.swift in Sources */,
-				968165891BD96192005D03DF /* detailedTripViewController.swift in Sources */,
 				96E89CA41BD446D8007DB51C /* tripPlannerTableViewController.swift in Sources */,
-				968165D71BDAB4CC005D03DF /* TripItem.swift in Sources */,
+				96E8CD851BE155CE00CFF004 /* Waypoint.swift in Sources */,
+				96E8CD841BE155CE00CFF004 /* Waypoint+CoreDataProperties.swift in Sources */,
 				962430E31BD4085F002ED708 /* AppDelegate.swift in Sources */,
 				9681658F1BDAA9F8005D03DF /* AddWaypointViewController.swift in Sources */,
-				9681658D1BD96CFD005D03DF /* plannedTripTableViewCell.swift in Sources */,
-				968165D61BDAB4CC005D03DF /* TripItem+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
