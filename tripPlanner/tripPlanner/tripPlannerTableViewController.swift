@@ -79,7 +79,7 @@ class tripPlannerTableViewController: UITableViewController {
         let trip = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
         
         trip.setValue(tripText, forKey: "tripName")
-        trip.setValue(2, forKey: "numberOfWaypoints")
+        trip.setValue(0, forKey: "numberOfWaypoints")
         
         do {
             try managedContext.save()
@@ -139,7 +139,9 @@ class tripPlannerTableViewController: UITableViewController {
         
         let trip = trips[indexPath.row]
         
-        cell!.textLabel!.text = trip.valueForKey("tripName") as? String
+        let tripKeyValue = trip.valueForKey("tripName") as? String
+        
+        cell!.textLabel!.text = "Trip to " + tripKeyValue!
         
         return cell!
     }
@@ -157,6 +159,12 @@ class tripPlannerTableViewController: UITableViewController {
             performSegueWithIdentifier("noWaypoints", sender: self)
         } else {
             performSegueWithIdentifier("showDetails", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "showDetails") {
+            print("yo")
         }
     }
     
@@ -214,5 +222,9 @@ class tripPlannerTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+
+
+
 
 }

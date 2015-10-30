@@ -25,7 +25,7 @@
                                             <rect key="frame" x="8" y="11" width="42" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="308" y="944"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="mPh-bz-TPO">
             <objects>
-                <tableViewController id="jyW-as-lSm" sceneMemberID="viewController">
+                <tableViewController id="jyW-as-lSm" customClass="WaypointsTableViewController" customModule="tripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="i4K-fg-dmR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,11 +84,18 @@
                             <outlet property="delegate" destination="jyW-as-lSm" id="Rmb-1u-xkG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="cdB-jw-3E2">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="liS-gA-u13">
+                            <connections>
+                                <segue destination="UPy-eh-4SR" kind="show" id="rbk-Hx-EfH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j43-Dz-rMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308" y="1629"/>
+            <point key="canvasLocation" x="260" y="1680"/>
         </scene>
         <!--Add Waypoint-->
         <scene sceneID="K0d-Ys-6Gj">
@@ -108,7 +115,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fwi-QU-c7k">
-                                <rect key="frame" x="0.0" y="108" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="465"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
@@ -119,7 +126,7 @@
                     <navigationItem key="navigationItem" title="Add Waypoint" id="prq-ez-oY8">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="feG-Ln-Eir">
                             <connections>
-                                <action selector="cancelButton:" destination="UPy-eh-4SR" id="C8x-VX-xdh"/>
+                                <action selector="cancelButton:" destination="UPy-eh-4SR" id="nc6-wP-yZn"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="Hyw-Dz-zVH"/>
@@ -128,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmd-Ro-QYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="1611"/>
+            <point key="canvasLocation" x="663" y="1673"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ngX-m4-W03">
@@ -185,7 +192,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jy4-xr-p1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="745" y="2252"/>
+            <point key="canvasLocation" x="663" y="2312"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rbk-Hx-EfH"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -17,7 +17,7 @@ class AddWaypointViewController: UIViewController {
     }
 
     @IBAction func cancelButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {});
+        navigationController?.popViewControllerAnimated(true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

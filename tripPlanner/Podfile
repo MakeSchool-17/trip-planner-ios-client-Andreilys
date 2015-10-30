@@ -1,0 +1,17 @@
+platform :ios, "8.0"
+use_frameworks!
+
+pod 'GoogleMaps'
+
+target 'tripPlanner' do
+
+end
+
+target 'tripPlannerTests' do
+
+end
+
+target 'tripPlannerUITests' do
+
+end
+
