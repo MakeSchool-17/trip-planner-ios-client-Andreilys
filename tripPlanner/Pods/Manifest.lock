@@ -1,10 +1,30 @@
 PODS:
+  - Gloss (0.6.0)
   - GoogleMaps (1.10.5)
+  - SwiftyJSON (2.3.1)
 
 DEPENDENCIES:
+  - Gloss (from `https://github.com/hkellaway/Gloss.git`)
   - GoogleMaps
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+
+EXTERNAL SOURCES:
+  Gloss:
+    :git: https://github.com/hkellaway/Gloss.git
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  Gloss:
+    :commit: b4eaa13106b30afa9c4e29ca4ac47570b138555d
+    :git: https://github.com/hkellaway/Gloss.git
+  SwiftyJSON:
+    :commit: 61c47231e06301bcd4e0c5d345d5a76cfa759b9a
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Gloss: 59f0b10942c523791cfbbfa882052fd9e87fe94a
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
+  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
 
 COCOAPODS: 0.39.0

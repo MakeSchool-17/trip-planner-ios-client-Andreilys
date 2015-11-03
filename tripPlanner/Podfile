@@ -4,11 +4,11 @@ use_frameworks!
 pod 'GoogleMaps'
 
 target 'tripPlanner' do
-
+     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 
 target 'tripPlannerTests' do
-
+	pod ‘Gloss’, :git => 'https://github.com/hkellaway/Gloss.git'
 end
 
 target 'tripPlannerUITests' do

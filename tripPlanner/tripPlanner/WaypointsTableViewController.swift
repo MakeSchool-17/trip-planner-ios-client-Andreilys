@@ -10,9 +10,11 @@ import UIKit
 
 class WaypointsTableViewController: UITableViewController {
 
+    var trip:Trip!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "some title"
+        self.title = trip.tripName!
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

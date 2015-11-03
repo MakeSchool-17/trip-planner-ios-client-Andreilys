@@ -14,6 +14,7 @@ class tripPlannerTableViewController: UITableViewController {
     @IBOutlet var myTableView: UITableView!
     
     var trips = [NSManagedObject]()
+    var selectedCellTrip:Trip!
     
     //MARK: viewdidload
     override func viewDidLoad() {
@@ -134,7 +135,6 @@ class tripPlannerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         
         let trip = trips[indexPath.row]
@@ -147,13 +147,13 @@ class tripPlannerTableViewController: UITableViewController {
     }
 
     
-    
+    //prepare for segue
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         // Pull from the trips instance variable to find the selected Trip
         let selectedTrip = trips[indexPath.row] as! Trip
-        
-        print(selectedTrip.numberOfWaypoints!)
+        //set the trip to trips object
+        selectedCellTrip = selectedTrip
         
         if(selectedTrip.numberOfWaypoints! == 0){
             performSegueWithIdentifier("noWaypoints", sender: self)
@@ -162,9 +162,15 @@ class tripPlannerTableViewController: UITableViewController {
         }
     }
     
+    // start the segue
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier == "showDetails") {
-            print("yo")
+            var svc = segue!.destinationViewController as! WaypointsTableViewController;
+            //pass the name
+            svc.trip = selectedCellTrip
+        } else if (segue.identifier == "noWaypoints"){
+            var svc = segue!.destinationViewController as! AddWaypointViewController;
+            svc.trip = selectedCellTrip
         }
     }
     
