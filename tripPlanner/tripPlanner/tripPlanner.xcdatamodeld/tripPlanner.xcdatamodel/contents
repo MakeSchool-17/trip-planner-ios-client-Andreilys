@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A284" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Automatic">
     <entity name="Trip" representedClassName=".Trip" syncable="YES">
         <attribute name="numberOfWaypoints" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="tripName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="waypoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Waypoint" inverseName="tripRelationship" inverseEntity="Waypoint" syncable="YES"/>
     </entity>
     <entity name="Waypoint" representedClassName=".Waypoint" syncable="YES">
-        <attribute name="lattitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="waypointName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="tripRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="waypoints" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <elements>
         <element name="Trip" positionX="-90" positionY="-234" width="128" height="88"/>
-        <element name="Waypoint" positionX="306" positionY="-234" width="144" height="88"/>
+        <element name="Waypoint" positionX="306" positionY="-234" width="144" height="105"/>
     </elements>
 </model>

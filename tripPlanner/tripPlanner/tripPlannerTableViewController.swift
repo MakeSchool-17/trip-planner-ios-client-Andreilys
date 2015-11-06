@@ -133,6 +133,8 @@ class tripPlannerTableViewController: UITableViewController {
         return trips.count
     }
     
+    //init the cell
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
@@ -154,8 +156,8 @@ class tripPlannerTableViewController: UITableViewController {
         let selectedTrip = trips[indexPath.row] as! Trip
         //set the trip to trips object
         selectedCellTrip = selectedTrip
-        
-        if(selectedTrip.numberOfWaypoints! == 0){
+        print(selectedCellTrip.waypoints!.count)
+        if(selectedCellTrip.waypoints!.count == 0){
             performSegueWithIdentifier("noWaypoints", sender: self)
         } else {
             performSegueWithIdentifier("showDetails", sender: self)

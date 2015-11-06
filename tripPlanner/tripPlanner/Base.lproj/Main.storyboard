@@ -68,7 +68,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LMt-M3-iGB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="LMt-M3-iGB">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LMt-M3-iGB" id="EGo-Ci-eCU">
@@ -92,6 +92,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="alI-uM-Oh6" kind="show" identifier="showWaypoint" id="Zu6-dF-rie"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j43-Dz-rMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmd-Ro-QYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="1673"/>
+            <point key="canvasLocation" x="663" y="1680"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ngX-m4-W03">
@@ -165,7 +168,7 @@
         <!--Waypoint Name-->
         <scene sceneID="XVI-YG-h7Y">
             <objects>
-                <viewController id="alI-uM-Oh6" customClass="AddWaypointViewController" customModule="tripPlanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="alI-uM-Oh6" customClass="displayWaypointMapViewController" customModule="tripPlanner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ofn-xK-GH1"/>
                         <viewControllerLayoutGuide type="bottom" id="XRD-Io-fXl"/>
@@ -174,13 +177,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htc-7r-bUt">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4u-0A-rS2">
+                                <rect key="frame" x="20" y="72" width="280" height="21"/>
                                 <animations/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcb-zU-5Yk">
+                                <rect key="frame" x="20" y="109" width="280" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gL0-5X-56l">
-                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="138" width="320" height="430"/>
                                 <animations/>
                             </mapView>
                         </subviews>
@@ -190,15 +202,20 @@
                     <navigationItem key="navigationItem" title="Waypoint Name" id="wAx-En-AXh">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="HGp-fg-mlX">
                             <connections>
-                                <action selector="cancelButton:" destination="alI-uM-Oh6" id="7yc-q9-idL"/>
+                                <action selector="cancelButton:" destination="alI-uM-Oh6" id="ozi-Xv-ng1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="latitudeLabel" destination="lcb-zU-5Yk" id="RBx-6u-mBL"/>
+                        <outlet property="longitutdeLabel" destination="j4u-0A-rS2" id="76S-lu-BLz"/>
+                        <outlet property="mapView" destination="gL0-5X-56l" id="g4q-La-S58"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jy4-xr-p1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="2312"/>
+            <point key="canvasLocation" x="260" y="2396"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

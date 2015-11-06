@@ -1,8 +1,8 @@
 //
-//  Waypoint+CoreDataProperties.swift
+//  Trip+CoreDataProperties.swift
 //  tripPlanner
 //
-//  Created by Andrei Lyskov on 10/28/15.
+//  Created by Andrei Lyskov on 11/3/15.
 //  Copyright © 2015 Andrei Lyskov. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,10 +12,10 @@
 import Foundation
 import CoreData
 
-extension Waypoint {
+extension Trip {
 
-    @NSManaged var lattitude: NSNumber?
-    @NSManaged var longitude: NSNumber?
-    @NSManaged var tripRelationship: NSManagedObject?
+    @NSManaged var numberOfWaypoints: NSNumber?
+    @NSManaged var tripName: String?
+    @NSManaged var waypoints: NSSet?
 
 }
